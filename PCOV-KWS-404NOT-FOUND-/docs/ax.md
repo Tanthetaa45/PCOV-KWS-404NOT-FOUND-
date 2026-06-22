@@ -15,6 +15,14 @@ training pipeline that produced the final submission.
 | SpeechBrain ECAPA-TDNN | Teacher model for speaker verification knowledge distillation |
 | Kaggle GPU (T4) | Training infrastructure (50 epochs, ~16 hours) |
 
+## Agentic Workflows & Tool Chaining
+
+Our agentic development setup relied heavily on **Claude** acting as the primary reasoning and planning orchestrator. 
+
+- **Reasoning & Planning Pipelines:** Claude was used to generate an initial blueprint of the asymmetric DS-CNN architecture. From there, we established an iterative loop where failed runs (e.g., dead SV head gradients) were analyzed by feeding tracebacks and classification reports back to Claude's context. Claude reasoned about the interaction between PCGrad and AMP (double-unscale bug) to propose the targeted fixes.
+- **Tool Use & Harness:** We used a local python testing harness to validate small architectural changes before pushing to Kaggle for full 50-epoch runs. We utilized Claude's coding assistant capabilities to write the `evaluate.py` test suite and standard metric trackers.
+- **Memory & Context Handling:** To avoid context limits during long debugging sessions, we maintained a running `agents.md` scratchpad that recorded exact tensor shapes and gradient norms across iterations. This allowed the coding assistant to maintain global state awareness without re-reading the entire codebase.
+
 ## Development Timeline
 
 ### Phase 1 — Architecture & Dataset
@@ -91,4 +99,4 @@ Result: Real-voice confidence 0.07 → 0.94–0.998. All KPIs preserved.
 Full training pipeline runs on Kaggle (T4 GPU, free tier):
 - See `src/notebook/01_PCOV_KWS_Base_Training.ipynb`
 - See `src/notebook/02_PCOV_KWS_User_Finetune_Eval.ipynb`
-- Reproducibility video: [Google Drive](https://drive.google.com/file/d/1y7S6l_4m_NuOjGaiUA9A_lEVxjR9fSLy/view?usp=sharing)
+- Reproducibility video: [YouTube](https://youtu.be/RrTlUff76JM)

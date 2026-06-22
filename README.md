@@ -150,8 +150,8 @@ This demonstrates the dual-gate security architecture: even though the KWS head 
 
 | Video | Link |
 |-------|------|
-| 🔬 Reproducibility & setup walkthrough | [Google Drive](https://drive.google.com/file/d/1y7S6l_4m_NuOjGaiUA9A_lEVxjR9fSLy/view?usp=sharing) |
-| 🎙️ Live microphone demo | [Google Drive](https://drive.google.com/file/d/1M4M277WscHwMgPzS4xjrRD3sg5MKQudB/view?usp=sharing) |
+| 🔬 Reproducibility & setup walkthrough | [YouTube](https://youtu.be/RrTlUff76JM) |
+| 🎙️ Live microphone demo | [YouTube](https://youtu.be/6PbQKbZ_azM) |
 
 ---
 
@@ -165,7 +165,7 @@ PCOV-KWS-404NOT-FOUND/
 │   ├── installation.md              #   Setup guide
 │   └── usage.md                     #   Usage guide
 ├── src/
-│   ├── checkpoints/                 # Model weights (included in repo)
+│   ├── checkpoints/                 # Model weights (hosted on Hugging Face)
 │   │   ├── pcov_kws_best.pth        #   Main 50-epoch trained model
 │   │   ├── pcov_kws_finetuned.pth   #   Fine-tuned for real-voice mic demo
 │   │   └── last_checkpoint.pth      #   Resume training checkpoint
@@ -199,12 +199,12 @@ PCOV-KWS-404NOT-FOUND/
 
 ## 📦 Model Weights
 
-Model checkpoints are included in the repository under `src/checkpoints/`:
+Model checkpoints are hosted on Hugging Face:
 
-| Checkpoint | Description |
-|---|---|
-| `pcov_kws_best.pth` | Main 50-epoch trained model — passes all 8 offline KPIs |
-| `pcov_kws_finetuned.pth` | Fine-tuned checkpoint for real-voice microphone detection |
+| Checkpoint | Description | Link |
+|---|---|---|
+| `pcov_kws_best.pth` | Main 50-epoch trained model — passes all 8 offline KPIs | [Hugging Face](https://huggingface.co/shake2005/pcov-kws-edge-weights) |
+| `pcov_kws_finetuned.pth` | Fine-tuned checkpoint for real-voice microphone detection | [Hugging Face](https://huggingface.co/shake2005/pcov-kws-edge-weights) |
 
 ---
 
@@ -236,7 +236,7 @@ cd PCOV-KWS-404NOT-FOUND
 pip install -r requirements.txt
 ```
 
-Model weights are already included in `src/checkpoints/`. Verify they are present after cloning:
+Download model weights from [Hugging Face](https://huggingface.co/shake2005/pcov-kws-edge-weights) and place them in `src/checkpoints/`:
 
 ```
 src/checkpoints/

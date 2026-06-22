@@ -16,8 +16,9 @@ pip install -r requirements.txt
 
 ## Model Weights
 
-Model weights are included in the repository under `src/checkpoints/`.
-Verify they are present after cloning:
+Download model weights from Hugging Face: [https://huggingface.co/shake2005/pcov-kws-edge-weights](https://huggingface.co/shake2005/pcov-kws-edge-weights)
+
+Place the weights in `src/checkpoints/`:
 
 ```
 src/checkpoints/
