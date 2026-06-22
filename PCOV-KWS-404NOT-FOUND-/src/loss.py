@@ -184,4 +184,3 @@ class SVEmbeddingKDLoss(nn.Module):
         soft_loss = self.criterion_cos(student_emb, teacher_emb, target)
         
         return (1. - self.alpha) * hard_sv_loss + self.alpha * soft_loss
-    

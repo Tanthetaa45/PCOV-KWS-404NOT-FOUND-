@@ -1,2 +1,33 @@
+# 1. Local User Directories & Dev Logs
+samm/
+heartbeat.txt
+
+# 2. Editor & OS Specific Caches
+.vscode/
 .DS_Store
-.venv
+Thumbs.db
+
+# 3. Python & Notebook Caches
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# 4. Model Weights & Checkpoints (large binary files — host on HuggingFace)
+src/checkpoints/
+*.pth
+*.pt
+*.onnx
+
+# 5. Data Directories (large datasets — download instructions in README)
+data/
+*.wav
+*.csv
+
+# 6. Generated Results & Logs
+results/
+*.log
+
+# 7. Environment
+.env
+venv/
+.venv/

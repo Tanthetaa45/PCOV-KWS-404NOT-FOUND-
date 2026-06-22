@@ -110,4 +110,4 @@ class PCENFrontend(nn.Module):
             pcen_out = self.freq_mask(pcen_out)
             pcen_out = self.time_mask(pcen_out)
 
-        return pcen_out.unsqueeze(1)          
+        return pcen_out.unsqueeze(1) 

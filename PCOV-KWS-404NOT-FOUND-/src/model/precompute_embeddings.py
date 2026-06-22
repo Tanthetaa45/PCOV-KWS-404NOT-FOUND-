@@ -1,3 +1,4 @@
+
 import os
 import json
 import torch
@@ -94,8 +95,9 @@ def main():
             # 🛡️ THE SECOND VACCINE: Catch any NaN embeddings
             nan_mask = torch.isnan(embeddings).any(dim=1)
             if nan_mask.any():
-                # Fill with 1e-7 instead of 0 to prevent division-by-zero in CosineLoss later
-                embeddings[nan_mask] = torch.full((192,), 1e-7, dtype=torch.float32)
+                safe_vec = torch.zeros(192, dtype=torch.float32)
+                safe_vec[0] = 1.0          # unit vector — valid on hypersphere
+                embeddings[nan_mask] = safe_vec
                 print(f"\n⚠️ Fixed {nan_mask.sum().item()} NaN embeddings in batch!")
 
             all_embeddings[indices] = embeddings

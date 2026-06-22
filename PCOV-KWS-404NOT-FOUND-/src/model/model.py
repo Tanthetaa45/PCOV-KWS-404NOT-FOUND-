@@ -191,3 +191,4 @@ if __name__ == "__main__":
     
     print(f"SV Embedding Shape: {sv_emb.shape} (Expected: 8, 192)")
     print(f"KWS Logits Shape: {kws_logits.shape} (Expected: 8, 4)")
+
